@@ -1,30 +1,34 @@
-# Projeto: Algoritmos em Java Web
+# Projeto Interface Web para Algoritmos
 
-Este projeto é uma aplicação web que implementa algoritmos em Java, utilizando Spring Boot e Thymeleaf para o front-end. Os algoritmos disponíveis são: Contador de Números Inteiros, Fibonacci e Máximo Divisor Comum (MDC).
+Este projeto é uma aplicação web desenvolvida em Java com Spring Boot, utilizando Thymeleaf para o front-end. O objetivo é implementar e visualizar diferentes algoritmos matemáticos através de uma interface web.
 
-## Estrutura do Projeto
+## Algoritmos Implementados
 
+1. **Contador de Números Inteiros**
+   - Conta quantos números inteiros foram digitados pelo usuário.
+   - Utiliza um formulário para entrada de dados e retorna a quantidade de inteiros.
 
-## Funcionalidades
+2. **Fibonacci**
+   - Calcula a sequência de Fibonacci até um número fornecido pelo usuário.
+   - Exibe a sequência gerada na interface.
+   
+3. **Máximo Divisor Comum (MDC)**
+   - Calcula o MDC entre dois números fornecidos pelo usuário.
+   - Apresenta o resultado de forma clara na mesma página.
 
-### 1. Contador de Números Inteiros
-- Conta quantos números inteiros são inseridos pelo usuário.
-- Permite a entrada de uma quantidade variável de números.
+4. **Verificação de Número Primo**
+   - Verifica se um número é primo ou não.
+   - O usuário insere um número e a aplicação informa se é primo.
 
-### 2. Fibonacci
-- Gera a sequência de Fibonacci até o número de termos solicitado pelo usuário.
+5. **Quicksort**
+   - Implementa o algoritmo de ordenação Quicksort.
+   - Permite que o usuário insira uma lista de números e exibe a lista ordenada.
 
-### 3. Máximo Divisor Comum (MDC)
-- Calcula o MDC de dois números inteiros fornecidos pelo usuário.
+6. **Soma de Números**
+   - Calcula a soma de uma lista de números inseridos pelo usuário.
+   - Exibe o resultado da soma na página.
 
-## Tecnologias Utilizadas
-- **Java 22.0.2**
-- **Spring Boot**
-- **Thymeleaf**
-- **HTML/CSS/JavaScript**
-
-## Como Executar o Projeto
-
+   
 1. Clone o repositório:
    ```bash
    git clone https://github.com/GervasioNeto/entregavel-2-webjava.git
