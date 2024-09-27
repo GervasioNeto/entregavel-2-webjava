@@ -2,21 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contador de Números</title>
-    <link rel="stylesheet" th:href="@{/css/contador.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Números Inteiros</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Contador de Números Inteiros</h1>
+<header>
+    <h1>Contador de Números Inteiros</h1>
+</header>
 
-<form action="#" th:onsubmit="return false;">
-    <input type="number" id="numero" placeholder="Digite um número">
-    <button type="button" onclick="contar()">Contar</button>
+<form action="#" th:action="@{/contador}" method="post">
+    <label for="n">Digite a quantidade de números:</label>
+    <input type="number" id="n" name="n" required>
+    <button type="button" id="generateButton">Gerar Campos</button>
+
+    <div id="numberInputs" style="display: none;">
+        <!-- Campos para os números vão aqui -->
+    </div>
+
+    <input type="submit" value="Contar Números Inteiros">
 </form>
 
-<p id="resultado"></p>
+<div id="result" th:if="${count != null}">
+    Foram digitados <span th:text="${count}"></span> números inteiros.
+</div>
 
-<button class="btn-back" th:onclick="window.location.href='/'">Voltar para a Página Principal</button>
+<script>
+    document.getElementById('generateButton').addEventListener('click', function() {
+        const n = document.getElementById('n').value;
+        const numberInputsDiv = document.getElementById('numberInputs');
+        numberInputsDiv.innerHTML = ''; // Limpa os campos anteriores
 
-<script th:src="@{/js/contador.js}"></script>
+        for (let i = 0; i < n; i++) {
+            const input = document.createElement('input');
+            input.type = 'text'; // Permite a entrada de floats
+            input.name = 'numeros'; // Nome do parâmetro que será enviado
+            input.placeholder = `Digite o ${i + 1}º número`;
+            numberInputsDiv.appendChild(input);
+        }
+
+        numberInputsDiv.style.display = 'block'; // Mostra os campos de entrada
+    });
+</script>
+
+<footer>
+    <img src="../static/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+    <a href="/" class="btn-voltar">Voltar para a Página Inicial</a>
+</footer>
 </body>
 </html>
