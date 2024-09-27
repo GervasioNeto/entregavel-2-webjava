@@ -28,12 +28,19 @@ Este projeto é uma aplicação web desenvolvida em Java com Spring Boot, utiliz
    - Calcula a soma de uma lista de números inseridos pelo usuário.
    - Exibe o resultado da soma na página.
 
-   
+## Tecnologias Utilizadas
+- **Java 22.0.2**
+- **Spring Boot**
+- **Thymeleaf**
+- **HTML/CSS**
+
+
+
 1. Clone o repositório:
    ```bash
    git clone https://github.com/GervasioNeto/entregavel-2-webjava.git
-   cd interfaceweb
 
-Execute a aplicação:
+Execute a aplicação: [http://localhost:8080]
 
+```bash 
 ./mvnw spring-boot:run
