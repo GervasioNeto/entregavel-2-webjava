@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Números</title>
+    <link rel="stylesheet" th:href="@{/css/contador.css}">
+</head>
+<body>
+<h1>Contador de Números Inteiros</h1>
+
+<form action="#" th:onsubmit="return false;">
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button type="button" onclick="contar()">Contar</button>
+</form>
+
+<p id="resultado"></p>
+
+<button class="btn-back" th:onclick="window.location.href='/'">Voltar para a Página Principal</button>
+
+<script th:src="@{/js/contador.js}"></script>
+</body>
+</html>

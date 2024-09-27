@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Algoritmos em Java Web</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Página Inicial dos Algoritmos</h1>
+</header>
+<nav>
+    <ul>
+        <li><a th:href="@{/contador}">Contador</a></li>
+        <li><a th:href="@{/fibonacci}">Fibonacci</a></li>
+        <li><a th:href="@{/mdc}">Máximo Divisor Comum</a></li>
+        <li><a th:href="@{/primo}">Verificação de Número Primo</a></li>
+        <li><a th:href="@{/quicksort}">Quicksort</a></li>
+        <li><a th:href="@{/soma}">Soma de Números</a></li>
+    </ul>
+</nav>
+</body>
+</html>
