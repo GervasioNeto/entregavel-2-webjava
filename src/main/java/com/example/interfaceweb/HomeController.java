@@ -97,6 +97,26 @@ public class HomeController {
         return "primo"; // Nome do arquivo HTML para Verificação de Número Primo
     }
 
+    @PostMapping("/primo")
+    public String verificarPrimo(@RequestParam int numero, Model model) {
+        boolean isPrimo = true;
+
+        if (numero < 2) {
+            isPrimo = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i == 0) {
+                    isPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        model.addAttribute("numero", numero);
+        model.addAttribute("isPrimo", isPrimo);
+        return "primo"; // Retorna à mesma página para mostrar o resultado
+    }
+
     @GetMapping("/quicksort")
     public String quicksort() {
         return "quicksort"; // Nome do arquivo HTML para o Quicksort

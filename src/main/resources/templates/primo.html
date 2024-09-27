@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificador de Números Primos</title>
-    <link rel="stylesheet" href="../css/primo.css">
-    <script defer src="../js/primo.js"></script>
+    <title>Verificação de Número Primo</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <h1>Verificador de Números Primos</h1>
-            <p>Insira um número para verificar se ele é primo:</p>
-            <input type="number" id="inputNumber" placeholder="Ex: 7" min="1" />
-            <button id="verificarButton">Verificar Primo</button>
-            <div id="resultado" class="resultado hidden"></div>
-            <button class="btn-back" onclick="window.location.href='../index.html'">Voltar para a Página Principal</button>
-        </div>
-    </div>
-    <img src="../imagens/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+<header>
+    <h1>Verificação de Número Primo</h1>
+</header>
+
+<form action="#" th:action="@{/primo}" method="post">
+    <label for="inputNumber">Digite um número:</label>
+    <input type="number" id="inputNumber" name="numero" required>
+
+    <button type="submit">Verificar se é Primo</button>
+</form>
+
+<div id="result" th:if="${isPrimo != null}">
+    <span th:text="${numero}"></span> é <span th:text="${isPrimo ? 'um número primo' : 'não é um número primo'}"></span>.
+</div>
+
+<footer>
+    <img src="../static/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+    <a href="/" class="btn-voltar">Voltar para a Página Inicial</a>
+</footer>
 </body>
 </html>
