@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máximo Divisor Comum</title>
-    <link rel="stylesheet" href="../css/mdc.css">
-    <script defer src="../js/mdc.js"></script>
+    <title>MDC - Máximo Divisor Comum</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <h1>Máximo Divisor Comum</h1>
-            <p>Insira dois números para calcular o Máximo Divisor Comum (MDC).</p>
-            <input type="number" id="inputNumber1" placeholder="Digite o primeiro número" min="1" />
-            <input type="number" id="inputNumber2" placeholder="Digite o segundo número" min="1" />
-            <button id="calculateButton">Calcular MDC</button>
-            <div id="result" class="result hidden"></div>
-        </div>
-        <button class="btn-back" onclick="window.location.href='../index.html'">Voltar para a Página Principal</button>
-    </div>
-    <img src="../imagens/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+<header>
+    <h1>MDC - Máximo Divisor Comum</h1>
+</header>
+
+<form action="#" th:action="@{/mdc}" method="post">
+    <label for="inputNumber1">Número 1:</label>
+    <input type="number" id="inputNumber1" name="numero1" required>
+
+    <label for="inputNumber2">Número 2:</label>
+    <input type="number" id="inputNumber2" name="numero2" required>
+
+    <button type="submit" id="calculateButton">Calcular MDC</button>
+</form>
+
+<div id="result" th:if="${mdc != null}">
+    O MDC de <span th:text="${numero1}"></span> e <span th:text="${numero2}"></span> é: <span th:text="${mdc}"></span>.
+</div>
+
+<footer>
+    <img src="../static/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+</footer>
 </body>
 </html>

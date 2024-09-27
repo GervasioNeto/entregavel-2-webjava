@@ -74,6 +74,24 @@ public class HomeController {
         return "mdc"; // Nome do arquivo HTML para o MDC
     }
 
+    @PostMapping("/mdc")
+    public String calcularMDC(@RequestParam int numero1, @RequestParam int numero2, Model model) {
+        int mdc = calcularMDCInterno(numero1, numero2);
+        model.addAttribute("mdc", mdc);
+        model.addAttribute("numero1", numero1);
+        model.addAttribute("numero2", numero2);
+        return "mdc"; // Retorna à mesma página para mostrar o resultado
+    }
+
+    private int calcularMDCInterno(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
     @GetMapping("/primo")
     public String primo() {
         return "primo"; // Nome do arquivo HTML para Verificação de Número Primo
