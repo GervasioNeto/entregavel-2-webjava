@@ -157,4 +157,18 @@ public class HomeController {
     public String soma() {
         return "soma"; // Nome do arquivo HTML para Soma de Números
     }
+
+    @PostMapping("/soma")
+    public String calcularSoma(@RequestParam List<Double> numeros, Model model) {
+        double soma = 0;
+
+        // Calcula a soma dos números
+        for (Double numero : numeros) {
+            soma += numero;
+        }
+
+        model.addAttribute("soma", soma);
+        return "soma"; // Retorna à mesma página para mostrar o resultado
+    }
+
 }
