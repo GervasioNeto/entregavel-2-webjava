@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algoritmo Quicksort</title>
-    <link rel="stylesheet" href="../css/quicksort.css">
-    <script defer src="../js/quicksort.js"></script>
+    <title>Quicksort</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <h1>Algoritmo Quicksort</h1>
-            <p>Insira os números separados por vírgula para ordenar:</p>
-            <input type="text" id="inputNumbers" placeholder="Exemplo: 5,3,8,6,2" />
-            <button id="ordenarButton">Ordenar</button>
-            <div id="resultado" class="resultado hidden"></div>
-            <button class="btn-back" onclick="window.location.href='../index.html'">Voltar para a Página Principal</button>
-        </div>
-    </div>
-    <img src="../imagens/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+<header>
+    <h1>Quicksort</h1>
+</header>
+
+<form action="#" th:action="@{/quicksort}" method="post">
+    <label for="inputNumbers">Números (separados por vírgula):</label>
+    <input type="text" id="inputNumbers" name="numeros" placeholder="Ex: 5,3,8,1" required>
+
+    <button type="submit" id="ordenarButton">Ordenar Números</button>
+</form>
+
+<div id="resultado" th:if="${sortedNumbers != null}">
+    Números ordenados: <span th:text="${sortedNumbers}"></span>.
+</div>
+
+<footer>
+    <img src="../static/unifor-logo-horizontal.svg" alt="Logo da Universidade" class="logo-universidade">
+    <a href="/" class="btn-voltar">Voltar para a Página Inicial</a>
+</footer>
 </body>
 </html>

@@ -122,6 +122,37 @@ public class HomeController {
         return "quicksort"; // Nome do arquivo HTML para o Quicksort
     }
 
+    @PostMapping("/quicksort")
+    public String calcularQuicksort(@RequestParam List<Integer> numeros, Model model) {
+        List<Integer> sortedNumbers = quicksort(numeros);
+        model.addAttribute("sortedNumbers", sortedNumbers);
+        return "quicksort"; // Retorna à mesma página para mostrar o resultado
+    }
+
+    private List<Integer> quicksort(List<Integer> arr) {
+        if (arr.size() <= 1) {
+            return arr;
+        }
+
+        int pivot = arr.get(arr.size() - 1);
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+
+        for (int i = 0; i < arr.size() - 1; i++) {
+            if (arr.get(i) < pivot) {
+                left.add(arr.get(i));
+            } else {
+                right.add(arr.get(i));
+            }
+        }
+
+        List<Integer> sorted = new ArrayList<>();
+        sorted.addAll(quicksort(left));
+        sorted.add(pivot);
+        sorted.addAll(quicksort(right));
+        return sorted;
+    }
+
     @GetMapping("/soma")
     public String soma() {
         return "soma"; // Nome do arquivo HTML para Soma de Números
